@@ -26,4 +26,28 @@ class Solution(object):
         return profit
 
 
+
+# optimised way
+
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        min_price = float('inf')  # Set to a very high value initially
+        max_profit = 0  # We start with 0 profit
+
+        for price in prices:
+            # Update min_price to the smallest price seen so far
+            if price < min_price:
+                min_price = price
+            # Calculate the potential profit if selling at the current price
+            profit = price - min_price
+            # Update max_profit to the highest profit we've seen so far
+            if profit > max_profit:
+                max_profit = profit
+
+        return max_profit
+
         
