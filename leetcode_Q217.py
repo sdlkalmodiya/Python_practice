@@ -13,3 +13,24 @@
                 return True
             
         return False
+
+# optimised way using hashmap
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        key_value = {}
+
+        for i in nums:
+            if i in key_value.keys():
+                key_value[i] = key_value[i] + 1
+
+            else:
+                key_value[i] = 1
+            
+        set_tmp = set(key_value.values())
+        if len(set_tmp) == 1:
+            return False
+
+        else:
+            return True
+            
