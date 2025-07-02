@@ -24,3 +24,15 @@ class Solution(object):
             elif nums[left]+nums[right] < target:
                 left +=1
 
+# Most Optimised way is to use hash map when we have to deal with index of numbers in an array
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        
+        hash_map = {}
+        for index, element in enumerate(nums):
+            find_element = target-element
+            if find_element in hash_map:
+                return[hash_map[find_element], index]
+            hash_map[element] = index
+
